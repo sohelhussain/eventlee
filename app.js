@@ -1,9 +1,7 @@
 const express = require('express');
 const app = express();
+const indexRouter = require('./router/indexRouter')
 
-
-app.get('/',(req,res)=>{
-    res.send('server are wroking preperly')
-})
+app.use("/api/v1",indexRouter)
 
 app.listen(8000)
