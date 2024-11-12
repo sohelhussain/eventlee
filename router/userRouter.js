@@ -10,6 +10,7 @@ router.get('/', userController);
 
 router.post("/signup", userSignup);
 router.post("/signin", userSignin);
+router.get("/user",isAuthenticated,getuser);
 router.get("/signout", isAuthenticated, userSignout);
 router.post("/send-mail", usersendmail);
 router.post("/forgot-password-link/:userId", userforgetlink);

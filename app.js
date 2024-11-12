@@ -1,6 +1,27 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 const app = express();
+
+const allowedOrigins = [
+  'http://localhost:5173',  // for local development
+  'https://fibohack-evently.vercel.app',
+  'https://fibohack-evently.onrender.com',  // for production
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.includes(origin) || !origin) {
+      // Allow requests with no origin (like mobile apps or curl requests)
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 const indexRouter = require("./router/indexRouter");
 require("./models/db").connectDatabase();
 const expressSession = require("express-session");

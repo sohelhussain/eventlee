@@ -8,6 +8,13 @@ const path = require("path");
 module.exports.userController = (req, res) => {
   res.json({ message: "this is homePage test" });
 }
+exports.getuser = catchAsyncError(async (req, res, next) => {
+  const data = await userModel.findById(req.id).exec();
+  res.json({
+    data,
+    authenticated: true,
+  });
+});
 
 exports.userSignup = catchAsyncError(async (req, res) => {
   console.log('fun');
