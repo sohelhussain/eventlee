@@ -14,13 +14,6 @@ const userSchema = new mongoose.Schema({
     required: [true, "Last Name is required"],
     minLength: [4, "Last Name shuld be atlest 4 character long"],
   },
-  avatar: {
-    type: Object,
-    default: {
-      fileId: "",
-      url: "https://static.vecteezy.com/system/resources/previews/045/944/203/large_2x/default-avatar-profile-icon-grey-photo-placeholder-for-social-networks-resumes-forums-and-dating-sites-male-no-photo-default-images-for-unfilled-user-profile-free-vector.jpg",
-    },
-  },
   contact: {
     type: String,
     required: [true, "First Name is required"],

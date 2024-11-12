@@ -10,6 +10,7 @@ module.exports.userController = (req, res) => {
 }
 
 exports.userSignup = catchAsyncError(async (req, res) => {
+  console.log('fun');
   const user = await new userModel(req.body).save();
   sendtoken(user, 201, res);
 });
