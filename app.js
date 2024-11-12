@@ -5,7 +5,7 @@ const indexRouter = require("./router/indexRouter");
 require("./models/db").connectDatabase();
 const expressSession = require("express-session");
 const cookieParser = require("cookie-parser");
-
+const {generatedError} = require('./middleware/error');
 
 const logger = require("morgan");
 app.use(logger("short"));
@@ -23,6 +23,7 @@ app.use(
 );
 
 app.use(cookieParser());
+
 
 app.use("/api/v1", indexRouter);
 app.all("*", (req, res, next) => {
