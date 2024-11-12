@@ -1,12 +1,12 @@
 const { catchAsyncError } = require("../middleware/catchAsyncErrors");
 const userModel = require("../models/userModel");
 const ErrorHandler = require("../utils/ErrorHandler");
-// const { sendmail } = require("../utils/nodemailer");
-// const { sendtoken } = require("../utils/sendToken");
+const { sendmail } = require("../utils/nodemailer");
+const { sendtoken } = require("../utils/sendToken");
 const path = require("path");
 
 module.exports.userController = (req, res) => {
-  res.send('user router working')
+  res.json({ message: "this is homePage test" });
 }
 
 exports.userSignup = catchAsyncError(async (req, res) => {
